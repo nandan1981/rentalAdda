@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <!--<link rel="manifest" href="./manifest.json">-->
+    <title>React + SpringBoot</title>
+    <link type="text/css" src="App.css" />
+</head>
+<body>
+
+<div id="root" />
+
+<script src="https://fb.me/react-15.0.1.js"></script>
+<script src="https://fb.me/react-dom-15.0.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+
+    var Employee = React.createClass({
+        render: function() {
+            return (<div>employee</div>);
+        }
+    });
+    var EmployeeTable = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <header >
+                        <img src="logo.svg" className="App-logo" alt="logo"  />
+                        <p>
+                            Edit <code>src/App.js</code> and save to reload.
+                        </p>
+                        <a
+                            className="App-link"
+                            href="https://reactjs.org"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Learn React . Build RentalAdda
+                        </a>
+                    </header>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<Employee/>, document.getElementById('root'));
+</script>
+</body>
+</html>
