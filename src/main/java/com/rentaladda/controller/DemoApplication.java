@@ -7,8 +7,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.rentaladda.model")
-@EntityScan("com.rentaladda.model")
+@EnableJpaRepositories("com.rentaladda.*")
+@EntityScan("com.rentaladda.*")
 @EnableAspectJAutoProxy
 public class DemoApplication {
     public static void main(String[] args) {

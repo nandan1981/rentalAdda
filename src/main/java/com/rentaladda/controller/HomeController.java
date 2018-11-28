@@ -18,9 +18,10 @@ public class HomeController {
 
 private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
-    @RequestMapping(value="/home/{name}")
-    public String Welcome(Model model, @PathVariable(value="name") String name){
-        model.addAttribute("name",name);
+    @RequestMapping(value="/home")
+    public String Welcome(){
+        //model.addAttribute("name",name);
+        //Was testing AOP here
         saySomething();
         return "welcome";
     }
@@ -31,6 +32,7 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         return "index";
     }
 
+    //Was testing AOP here
     public void saySomething(){
         //System.out.println("Hi There");
     }
@@ -39,6 +41,7 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         String generatedId = firstPart+"."+secondPart+"@testdomain.com";
         return generatedId;
     }
+
     public static boolean isValid(String email){
         String regex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         Pattern pattern = Pattern.compile(regex);
