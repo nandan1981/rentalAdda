@@ -21,7 +21,7 @@ public class RepositoryTestDev {
     private TestEntityManager testEntityManager;
 
     @Autowired
-    private UserRepositoryDev userRepositoryDev;
+    private UserRepository userRepository;
 
     @Test
     public void whenSearchName_ThenReturnUser(){
@@ -29,7 +29,7 @@ public class RepositoryTestDev {
         User use = new User("Bill");
         testEntityManager.persist(use);
         testEntityManager.flush();
-        User userDetected = userRepositoryDev.findByName("Bill");
+        User userDetected = userRepository.findByName("Bill");
         assertThat(userDetected.getName()).isEqualTo(use.getName());
     }
 
@@ -39,7 +39,7 @@ public class RepositoryTestDev {
         User use = new User("Ted");
         testEntityManager.persist(use);
         testEntityManager.flush();
-        User userDetected = userRepositoryDev.findByName("Bill");
+        User userDetected = userRepository.findByName("Bill");
         assertThat(userDetected).isNull();
     }
 }

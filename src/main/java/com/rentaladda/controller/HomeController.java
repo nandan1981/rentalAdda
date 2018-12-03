@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 @Component
 @Controller
@@ -35,6 +39,20 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
     //Was testing AOP here
     public void saySomething(){
         //System.out.println("Hi There");
+        List<String> ll = new ArrayList<String>();
+        ll.add("names");
+        ll.add("surnames");
+
+        Stream<String> output = ll.stream().filter(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+               return s == "nam" ? false : true;
+            }
+        });
+
+        Stream.of("abc","aeg").sorted().findFirst().ifPresent(System.out::println);
+
+        System.out.println(output.count());
     }
 
     public static String createEmailID(String firstPart,String secondPart){

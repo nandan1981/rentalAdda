@@ -3,8 +3,10 @@ package com.rentaladda.controller;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jms.core.JmsTemplate;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.rentaladda.*")
@@ -12,6 +14,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableAspectJAutoProxy
 public class DemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        ApplicationContext ctx=SpringApplication.run(DemoApplication.class, args);
+
+        JmsTemplate jms = ctx.getBean(JmsTemplate.class);
+
+        jms.convertAndSend("rentalQueue","Hi there!");
+
+
     }
 }

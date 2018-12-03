@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-           <img src="../images/logo.png" /> <a class="navbar-brand" href="#">RentalAdda</a>
+           <img src="/images/logo.png" /> <a class="navbar-brand" href="#">RentalAdda</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
@@ -45,8 +45,6 @@
 </nav>
 
 <div class="container">
-    <h1>Welcome to RentalAdda!</h1><!--<p th:text="${name}">-->
-
 <!--    <p class="bg-primary text-white"> What technology you learning next?
         I hope it is as below
     <ul>
@@ -59,8 +57,8 @@
     </ul>
     </p>-->
 
-    <button type="button" class="btn btn-primary btn-lg" text="Buy"></button>
-    <button type="button" class="btn btn-primary btn-lg" text="Rent"></button>
+    <button type="button" class="btn btn-primary btn-lg" th:text="Buy"></button>
+    <button type="button" class="btn btn-primary btn-lg" th:text="Rent"></button>
 </div>
 
 </body>
