@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.slf4j.Logger;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +31,6 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         return "welcome";
     }
 
-    @RequestMapping(value="/react")
-    public String Home(Model model){
-        saySomething();
-        return "index";
-    }
 
     //Was testing AOP here
     public void saySomething(){
@@ -42,7 +38,6 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         List<String> ll = new ArrayList<String>();
         ll.add("names");
         ll.add("surnames");
-
         Stream<String> output = ll.stream().filter(new Predicate<String>() {
             @Override
             public boolean test(String s) {
@@ -51,7 +46,6 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         });
 
         Stream.of("abc","aeg").sorted().findFirst().ifPresent(System.out::println);
-
         System.out.println(output.count());
     }
 
