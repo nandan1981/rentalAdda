@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository  {
 
 /*    @Profile("dev")
     public void initDevJdbcTemplate();
@@ -17,5 +17,5 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Profile("prod")
     public void initProdJdbcTemplate();*/
 
-    public User findByName(String name);
+    //public User findByName(String name);
 }
