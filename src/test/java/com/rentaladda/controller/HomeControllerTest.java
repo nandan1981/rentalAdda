@@ -2,25 +2,34 @@ package com.rentaladda.controller;
 
 import com.rentaladda.controller.HomeController;
 import org.junit.Test;
+import org.junit.rules.TestRule;
+import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.model.Statement;
+
 import static org.hamcrest.CoreMatchers.*;
 
 import static org.junit.Assert.*;
 import java.util.Arrays;
 
 @RunWith(Parameterized.class)
-public class HomeControllerTest {
+public class HomeControllerTest implements TestRule {
 
     private String emailId;
     private boolean expected;
+
+    @Override
+    public Statement apply(Statement statement, Description description) {
+        return null;
+    }
 
     public HomeControllerTest(String emailId, boolean expected) {
         this.emailId = emailId;
         this.expected = expected;
     }
 
-    @Parameterized.Parameters(name = "{index}: isValid({0})={1}")
+    @Parameterized.Parameters(name = "{index}: isValidated({0})={1}")
     public static Iterable<Object[]> data() {
         return Arrays.asList(new Object[][]{
                         {"mary@testdomain.com", true},
