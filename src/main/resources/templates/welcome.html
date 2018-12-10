@@ -13,12 +13,12 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="/public/static/js/App.js" ></script>
 </head>
-<body>
-
+<body style="background-color:antiquewhite">
+<!--Navigation bar starts-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-           <img src="/public/static/images/logo.png" /> <a class="navbar-brand" href="#">RentalAdda</a>
+           <!--<img src="/public/static/images/logo.png" /> <a class="navbar-brand" href="#">RentalAdda</a>-->
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
@@ -47,11 +47,19 @@
         </ul>
     </div>
 </nav>
-
-<div class="container">
-    <button type="button" id="Buy" class="btn btn-primary btn-lg" th:text="Buy"></button>
-    <button type="button" id="Rent" class="btn btn-primary btn-lg" th:text="Rent"></button>
+<!--Navigation bar ends-->
+    
+<!--center starts -->
+<div style="margin-top:10%;margin-left:50%;">
+    <button type="button" id="Buy" class="btn btn-lg" th:text="Buy"></button>
+    <button type="button" id="Rent" class="btn btn-lg" th:text="Rent"></button>
 </div>
+<!--center ends -->
 
+<!-- Footer starts-->
+<footer class="navbar navbar-fixed-bottom" style="margin-left:50%;">
+    © 2018 RentalAdda
+</footer>
+<!-- Footer ends-->
 </body>
 </html>
