@@ -35,6 +35,14 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         return "welcome";
     }
 
+    @RequestMapping(value="/LoginPopup")
+    public String LoginPopup(Model model){
+        model.addAttribute("isEnabledSignUp",true);
+        model.addAttribute("isEnabledLogin",true);
+        model.addAttribute("isLoggedIn",false);
+        //Was testing AOP here
+        return "LoginPopup";
+    }
 
     //Was testing AOP here
 /*    public void saySomething(){

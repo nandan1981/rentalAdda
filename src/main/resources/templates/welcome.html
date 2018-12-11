@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" manifest="rentaladda.appcache" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Welcome to Rental Adda</title>
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="/public/static/js/App.js" ></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body style="background-color:antiquewhite">
 <!--Navigation bar starts-->
@@ -44,7 +45,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li th:if="${isEnabledSignUp}"><a href="#"><span class="glyphicon"></span> Sign Up</a></li>
-            <li th:if="${isEnabledLogin}"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li th:if="${isEnabledLogin}"><a href="#" onclick="return openPopupLogin();"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <li th:if="${isLoggedIn}"><a href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
         </ul>
     </div>
@@ -63,5 +64,15 @@
     © 2018 RentalAdda
 </footer>
 <!-- Footer ends-->
+
+<script>
+    function openPopupLogin(){
+        var win = window.open('/LoginPopup','signup','height=500,width=600,top=400,left=600,toolbar=no,status=no,titlebar=no,menubar=no,location=no');
+        if (window.focus) {
+                win.focus()}
+            return false;
+        }
+
+</script>
 </body>
 </html>
