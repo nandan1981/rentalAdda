@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Rental Adda Home Page</title>
+    <title>Welcome to Rental Adda</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -41,14 +41,16 @@
                 </div>
             </div>
         </form>
+
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li th:if="${isEnabledSignUp}"><a href="#"><span class="glyphicon"></span> Sign Up</a></li>
+            <li th:if="${isEnabledLogin}"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li th:if="${isLoggedIn}"><a href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
         </ul>
     </div>
 </nav>
 <!--Navigation bar ends-->
-    
+
 <!--center starts -->
 <div style="margin-top:10%;margin-left:50%;">
     <button type="button" id="Buy" class="btn btn-lg" th:text="Buy"></button>

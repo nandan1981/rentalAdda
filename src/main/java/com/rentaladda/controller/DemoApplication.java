@@ -24,7 +24,8 @@ public class DemoApplication {
     public static void main(String[] args) {
         ApplicationContext ctx=SpringApplication.run(DemoApplication.class, args);
 
-        JmsTemplate jms = ctx.getBean(JmsTemplate.class);
+        //Testing the Apache Active MQ functionality
+/*        JmsTemplate jms = ctx.getBean(JmsTemplate.class);
         User use = new User("NalinBakshi");
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutput out = null;
@@ -36,18 +37,14 @@ public class DemoApplication {
             yourBytes = bos.toByteArray();
             jms.convertAndSend("rentalQueue",yourBytes);
         } catch(IOException io){
-
-            System.out.println("An issue with the input"+io.getCause());
-            System.out.println("An issue with the input"+io.toString());
             System.out.println("An issue with the input"+io.getStackTrace());
-
         } finally{
             try {
                 bos.close();
             } catch (IOException ex) {
                 // ignore close exception
             }
-        }
+        }*/
 
 
 

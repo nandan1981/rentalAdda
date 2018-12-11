@@ -17,6 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+/**
+ *  This is the default controller to access most features on the home page navigation bar
+ */
 @Component
 @Controller
 public class HomeController {
@@ -24,16 +27,17 @@ public class HomeController {
 private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(value="/home")
-    public String Welcome(){
-        //model.addAttribute("name",name);
+    public String Welcome(Model model){
+        model.addAttribute("isEnabledSignUp",true);
+        model.addAttribute("isEnabledLogin",true);
+        model.addAttribute("isLoggedIn",false);
         //Was testing AOP here
-        saySomething();
         return "welcome";
     }
 
 
     //Was testing AOP here
-    public void saySomething(){
+/*    public void saySomething(){
         //System.out.println("Hi There");
         List<String> ll = new ArrayList<String>();
         ll.add("names");
@@ -47,7 +51,7 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
         Stream.of("abc","aeg").sorted().findFirst().ifPresent(System.out::println);
         System.out.println(output.count());
-    }
+    }*/
 
     public static String createEmailID(String firstPart,String secondPart){
         String generatedId = firstPart+"."+secondPart+"@testdomain.com";
