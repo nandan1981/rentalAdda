@@ -22,7 +22,7 @@ import java.util.stream.Stream;
  */
 @Component
 @Controller
-public class HomeController {
+class HomeController {
 
 private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
@@ -61,15 +61,26 @@ private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         System.out.println(output.count());
     }*/
 
-    public static String createEmailID(String firstPart,String secondPart){
-        String generatedId = firstPart+"."+secondPart+"@testdomain.com";
-        return generatedId;
-    }
-
     public static boolean isValid(String email){
         String regex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         Pattern pattern = Pattern.compile(regex);
         Matcher m = pattern.matcher(email);
         return m.matches();
+    }
+
+    private class innerController{
+
+        {
+            System.out.println("private inner class");
+        }
+
+        @RequestMapping(value = "/innerHome")
+        public void innerHome(){
+            System.out.println("Inner home print");
+        }
+
+        public String test() {
+            return null;
+        }
     }
 }
